@@ -13,7 +13,7 @@ effective data management.
 
 ### Schematics Rethink
 
-I am the original author of [https://github.com/schematics/schematics](Schematics).
+I am the original author of [Schematics](https://github.com/schematics/schematics).
 
 A community took over the Schematics project a while back, but I found I needed to solve the roughly the same validation and conversion problems in every new system I encountered, giving me an opportunity to continue learning about the problem space.
 
