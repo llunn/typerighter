@@ -5,4 +5,3 @@
 
    devenv
    testing
-   architecture

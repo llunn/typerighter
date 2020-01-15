@@ -6,18 +6,27 @@ Typerighter
 
 .. rubric:: Data Types for Cynical Humans.
 
-Welcome to Typerighter, a project that makes it easy to structure and process
-data using concepts from type systems.
+Welcome to Typerighter, a project that makes it easy to with common types of
+data using roughly the same ideas as type systems. Instead of defining what a
+string is, it uses strings to define what URLs or datetimes are.
+
+Its concepts are simple and built around ideas that require little effort for
+effective data management.
 
 
 Example
 =======
 
-A Type. ::
+Define a type by instantiating it with config parameters. ::
 
-  >>> st = types.StringType(max_length=12)
+  >>> string_type = types.StringType(max_length=12)
 
-A Record. ::
+Validate data with that type definition. ::
+
+  >>> short_string = 'Take Five'
+  >>> string_type.validate(short_string)
+
+Define a record with fields and instantiate it. ::
 
   >>> class Artist(types.Record):
   ...     name = types.StringType(required=True)
@@ -25,18 +34,23 @@ A Record. ::
   ...
   >>> artist_type = Artist()
 
-Validate data. ::
+Validate data with that record. ::
 
-  >>> data = 'Take Five'
-  >>> st.validate(data)
-  >>>
-  >>> data = {
+  >>> band_data = {
   ...     'name': u'American Food',
-  ...     'website': 'http://soundcloud.com/americanfood'
+  ...     'website': 'https://soundcloud.com/americanfood'
   ... })
-  >>> artist_type.validate(data)
+  >>> artist_type.validate(band_data)
+
+Use a mutable structure instead of a dict for the data. ::
+
+  >>> american_food = artist_type.make_view(band_data)
+  >>> # Promote the reinterpretation of Take On Me
+  >>> american_food.website = 'https://soundcloud.com/americanfood/my-take-on-take-on-me'
+  >>> american_food.validate()
 
 
+=============
 Documentation
 =============
 
@@ -47,6 +61,13 @@ Documentation
    Intro <self>
    installation
    quickstart
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Design Guide
+
+   design/index.rst
 
 
 .. toctree::

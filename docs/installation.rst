@@ -12,7 +12,8 @@ Tagged releases are available from `PyPI <https://pypi.org>`_::
 Python Version
 ==============
 
-TypeRighter is strictly Python 3 and up.
+Typerighter began with Python 3.7 and aims to stay aligned with the all future
+versions of Python.
 
 
 Optional Packages
